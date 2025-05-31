@@ -13,7 +13,7 @@ class DateList(BaseModel):
 
 @app.post("/calendar")
 def generate_calendar(date_list: DateList):
-    # Преобразуем строки в datetime
+    # Преобразуем строки в datetime format
     parsed_dates = [datetime.strptime(d, "%d-%m-%Y") for d in date_list.dates]
     if not parsed_dates:
         return {"error": "No dates provided"}
